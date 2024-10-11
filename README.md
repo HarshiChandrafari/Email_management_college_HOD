@@ -5,6 +5,8 @@
 * Link to download - https://drive.google.com/drive/folders/1DVBvNmdeYemHvt0Acg4BFl9XKaSUeDgx?usp=sharing
 * After Downloading, run the streamlit file by typing - python -m streamlit run Streamlit_code.py
 * The app will open in the browser; input the email text that you want to classify.
+* 
+### NOTE - Copilot was used to add comments to code
 
 # Data Collection
 
