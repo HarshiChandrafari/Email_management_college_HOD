@@ -1,13 +1,14 @@
 import streamlit as st
 import torch
 from transformers import BertTokenizer, BertForSequenceClassification
+from transformers import AutoModel
+model = AutoModel.from_pretrained("Harshi2104/lora_model_for_email_response_HOD")
 
-# Load the fine-tuned BERT model and tokenizer
-model = BertForSequenceClassification.from_pretrained('fine_tuned_bert') 
+PATH = 'fine_tuned_bert_20epoch' #Change this according to your path
+model = BertForSequenceClassification.from_pretrained(PATH) 
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-# Define id2label mapping
 id2label = {
     1: 'Student',
     2: 'Research',
@@ -16,7 +17,6 @@ id2label = {
 }
 
 def predict(text,id2label):
-    # Preprocess the input text
     encoding = tokenizer.encode_plus(
         text,
         add_special_tokens=True,
@@ -42,7 +42,6 @@ def predict(text,id2label):
     return id2label[predicted_class]
 
 
-
 st.title('Contact HOD')
 
 # Input text from the user
@@ -52,6 +51,8 @@ if st.button('Send'):
     if input_text:
         # Get prediction and display it
         label = predict(input_text,id2label)
-        st.write(f'The predicted label is: **{label}**')
+        st.write(f'The message has been categorized to: **{label}**' 'category')
     else:
-        st.write("Please enter some text for classification.")
+        st.write("Please enter the message you want to send")
+
+
