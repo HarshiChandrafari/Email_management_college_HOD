@@ -1,5 +1,6 @@
-# Instructions to use
+# Instructions to run the streamlit app
 
+# Data Collection
 
 # Model Descriptions
 
@@ -12,9 +13,9 @@ LSTMs excel at capturing long-range dependencies and relationships between words
 
 We trained the model for 25 epochs. Although we considered increasing the number of epochs, we observed signs of overfitting, so we settled on 25.
 
-We also experimented with modifying the model architecture by adjusting the number of layers and units. Reducing these resulted in slight drops in recall and precision, while increasing them didn't yield significant improvements. Based on these trials, we chose the structure described above as the most effective. The metrics obtained by different model architecture can be viewed in the link provided below:
+We also experimented with modifying the model architecture by adjusting the number of layers and units. Reducing these resulted in slight drops in recall and precision while increasing them didn't yield significant improvements. Based on these trials, we chose the structure described above as the most effective. The metrics obtained by different model architectures can be viewed in the link provided below:
 
-https://docs.google.com/document/d/1G1hHA1_NriG2QRxwFJPNPHn4YLxn40TthS5v6tkflC0/edit
+[https://docs.google.com/document/d/1PyQOHmqc3Q44WixoPSKDxTGdNp-fj0uIi2dGOX-K3Yw/edit?usp=sharing]
 
 Finally, we obtained the following results:
 For test data:
@@ -25,7 +26,6 @@ For train data
 Precision: 0.96
 Recall: 0.96
 
-[https://docs.google.com/document/d/1PyQOHmqc3Q44WixoPSKDxTGdNp-fj0uIi2dGOX-K3Yw/edit?usp=sharing]
 
 ## Model Fine-Tuned
 
