@@ -4,7 +4,7 @@
 
 # Model Descriptions
 
-## Model From Scratch 
+## Model From Scratch for classification
 To train this model, we began by cleaning the dataset. First, we removed all links and irrelevant data. After that, we tokenized the text, eliminated stop words, and lemmatized the words to their base forms, retaining only nouns, adjectives, adverbs, and verbs. The vocabulary was then encoded using Keras' TextVectorization layer.
 
 The current model architecture consists of two Bidirectional LSTM layers: the first with 64 units and the second with 32 units. These are followed by a dense layer with 64 units and an output layer with 4 units, corresponding to the 4 target categories. We used ReLU activation in both dense layers.
@@ -28,15 +28,14 @@ For train data:
 * Recall: 0.96
 
 
-## Model Fine-Tuned
+## Model Fine-Tuned for classification
 The data pre-processing was the same as for the model made from scratch. The data was then tokenized using BertTokenizerFast.from_pretrained('bert-base-uncased'). Since BERT has a fixed input size, we set a maximum sequence length (`MAX_LEN`) of 512 tokens to ensure that our input data fits within the model's constraints.
 In addition to tokenization, we created attention masks to differentiate between actual tokens and padding tokens, enhancing the model's focus during training. 
 
 We used the BERT model for sequence classification tasks. The model, instantiated using `BertForSequenceClassification,` is specifically designed to handle classification with multiple labels (in our case, four).
 The reason for choosing the BERT model for the fine-tuning model is that it is an effective model for text classification due to its bidirectional processing, which captures context from both sides of a word, enhancing semantic understanding. Its pre-training on large datasets allows for fine-tuning specific tasks with smaller datasets, and in our case, we had a small dataset.
 
-We initially trained for 10 epochs and the results were not satisfactory therefore we increased the number of epochs to 20
-
+We initially trained for 10 epochs, and the results were not satisfactory; therefore, we increased the number of epochs to 20
 
 Final Results:
 
@@ -51,3 +50,14 @@ For train data:
 The savel models, after fine-tuning, were too big and could not be uploaded to GitHub; therefore, we uploaded them to Google Drive and made them publicly available; you can download them and use them.
 Model trained for 20 Epochs(Final Model) - [https://drive.google.com/drive/folders/1DVBvNmdeYemHvt0Acg4BFl9XKaSUeDgx?usp=sharing]
 Model trained for 10 Epochs(Initial Model) - [https://drive.google.com/drive/folders/1-SJ2l5rR-OtguvAPZT8ekN5bio23HGzW?usp=sharing]
+
+## Model for generating Email response
+
+We fine-tuned the base model-"unsloth/llama-3-8b-Instruct-bnb-4bit" on responses.csv dataset, to generate the appropriate response.
+
+Link to dataset on hugging face - https://huggingface.co/datasets/Harshi2104/Fine_tune_llama_email_response
+
+Link to saved model on hugging face - https://huggingface.co/Harshi2104/lora_model_for_email_response_HOD
+
+Colab File used for fine tuning - https://colab.research.google.com/drive/1hLSbmPFqxpYlqK5dqdmGtqU3UACHkgj5?usp=sharing
+
