@@ -17,16 +17,37 @@ We also experimented with modifying the model architecture by adjusting the numb
 
 [https://docs.google.com/document/d/1PyQOHmqc3Q44WixoPSKDxTGdNp-fj0uIi2dGOX-K3Yw/edit?usp=sharing]
 
-Finally, we obtained the following results:
-For test data:
-Precision: 0.82
-Recall: 0.802
+Final Results:
 
-For train data
-Precision: 0.96
-Recall: 0.96
+For test data:
+* Precision: 0.82
+* Recall: 0.802
+
+For train data:
+* Precision: 0.96
+* Recall: 0.96
 
 
 ## Model Fine-Tuned
+The data pre-processing was the same as for the model made from scratch. The data was then tokenized using BertTokenizerFast.from_pretrained('bert-base-uncased'). Since BERT has a fixed input size, we set a maximum sequence length (`MAX_LEN`) of 512 tokens to ensure that our input data fits within the model's constraints.
+In addition to tokenization, we created attention masks to differentiate between actual tokens and padding tokens, enhancing the model's focus during training. 
 
-Link to saved model on drive -> [https://drive.google.com/drive/folders/1-SJ2l5rR-OtguvAPZT8ekN5bio23HGzW?usp=sharing]
+We used the BERT model for sequence classification tasks. The model, instantiated using `BertForSequenceClassification,` is specifically designed to handle classification with multiple labels (in our case, four).
+The reason for choosing the BERT model for the fine-tuning model is that it is an effective model for text classification due to its bidirectional processing, which captures context from both sides of a word, enhancing semantic understanding. Its pre-training on large datasets allows for fine-tuning specific tasks with smaller datasets, and in our case, we had a small dataset.
+
+We initially trained for 10 epochs and the results were not satisfactory therefore we increased the number of epochs to 20
+
+
+Final Results:
+
+For Test Data
+* Precision: 0.847
+* Recall: 0.848
+
+For train data:
+* Precision: 0.94
+* Recall: 0.95
+
+The savel models, after fine-tuning, were too big and could not be uploaded to GitHub; therefore, we uploaded them to Google Drive and made them publicly available; you can download them and use them.
+Model trained for 20 Epochs(Final Model) - [https://drive.google.com/drive/folders/1DVBvNmdeYemHvt0Acg4BFl9XKaSUeDgx?usp=sharing]
+Model trained for 10 Epochs(Initial Model) - [https://drive.google.com/drive/folders/1-SJ2l5rR-OtguvAPZT8ekN5bio23HGzW?usp=sharing]
