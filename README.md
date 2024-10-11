@@ -8,7 +8,28 @@
 
 # Data Collection
 
+We collected data from the following resources
+* https://www.kaggle.com/datasets/wcukierski/enron-email-dataset
+* Synthetic data using ChatGPT and Gemini
+* From hugging face - "gabrielmbmb/FinePersonas-Synthetic-Emails"
+* https://figshare.com/articles/dataset/Email_Dataset_for_Automatic_Response_Suggestion_within_a_University/5853057
+
+
 # Model Descriptions
+
+
+## Model for generating Email response
+
+We fine-tuned the base model-"unsloth/llama-3-8b-Instruct-bnb-4bit" on responses.csv dataset, to generate the appropriate response.
+
+Link to dataset on hugging face - https://huggingface.co/datasets/Harshi2104/Fine_tune_llama_email_response
+
+Link to saved model on hugging face - https://huggingface.co/Harshi2104/lora_model_for_email_response_HOD
+
+Colab File used for fine tuning - https://colab.research.google.com/drive/1hLSbmPFqxpYlqK5dqdmGtqU3UACHkgj5?usp=sharing
+
+For practical use we can collect original emails from HODS and fine-tune on that data
+
 
 ## Model From Scratch for classification
 To train this model, we began by cleaning the dataset. First, we removed all links and irrelevant data. After that, we tokenized the text, eliminated stop words, and lemmatized the words to their base forms, retaining only nouns, adjectives, adverbs, and verbs. The vocabulary was then encoded using Keras' TextVectorization layer.
@@ -56,14 +77,4 @@ For train data:
 The savel models, after fine-tuning, were too big and could not be uploaded to GitHub; therefore, we uploaded them to Google Drive and made them publicly available; you can download them and use them.
 Model trained for 20 Epochs(Final Model) - [https://drive.google.com/drive/folders/1DVBvNmdeYemHvt0Acg4BFl9XKaSUeDgx?usp=sharing]
 Model trained for 10 Epochs(Initial Model) - [https://drive.google.com/drive/folders/1-SJ2l5rR-OtguvAPZT8ekN5bio23HGzW?usp=sharing]
-
-## Model for generating Email response
-
-We fine-tuned the base model-"unsloth/llama-3-8b-Instruct-bnb-4bit" on responses.csv dataset, to generate the appropriate response.
-
-Link to dataset on hugging face - https://huggingface.co/datasets/Harshi2104/Fine_tune_llama_email_response
-
-Link to saved model on hugging face - https://huggingface.co/Harshi2104/lora_model_for_email_response_HOD
-
-Colab File used for fine tuning - https://colab.research.google.com/drive/1hLSbmPFqxpYlqK5dqdmGtqU3UACHkgj5?usp=sharing
 
