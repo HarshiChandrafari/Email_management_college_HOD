@@ -1,7 +1,7 @@
 # Instructions to run the streamlit app
 
 * To run the streamlit application, make sure all dependencies in requirments.txt are installed
-* Next, Download the model in the same directory where you have cloned the repository (i.e, inside the SmartSense_email_management folder]
+* Next, Download the model in the same directory where you have cloned the repository (i.e, inside the Email_management_college_HOD folder]
 * Link to download - https://drive.google.com/drive/folders/1DVBvNmdeYemHvt0Acg4BFl9XKaSUeDgx?usp=sharing
 * After Downloading, run the streamlit file by typing - python -m streamlit run Streamlit_code.py
 * The app will open in the browser; input the email text that you want to classify.
